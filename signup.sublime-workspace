@@ -1,0 +1,475 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"errorIn",
+				"errorInputUsername"
+			],
+			[
+				"encryt",
+				"encryptedPassword"
+			],
+			[
+				"error",
+				"errorInputPassword  (variable)"
+			],
+			[
+				"user",
+				"userPassword"
+			],
+			[
+				"errorInput",
+				"errorInputUsername  (variable)"
+			],
+			[
+				"input",
+				"inputUsername"
+			],
+			[
+				"base64",
+				"base64_encode  (function)"
+			],
+			[
+				"pag",
+				"pageName"
+			],
+			[
+				"aArr",
+				"aArray2  (variable)"
+			],
+			[
+				"aMy",
+				"aMySecondArray"
+			],
+			[
+				"a",
+				"aMyArray"
+			],
+			[
+				"array_a",
+				"array_pad"
+			],
+			[
+				"meta",
+				"metadata"
+			],
+			[
+				"outputSome",
+				"outputSomeTextWithArgs"
+			],
+			[
+				"s",
+				"sReturnedFromFunction"
+			],
+			[
+				"smy",
+				"sMyVar3  (variable)"
+			],
+			[
+				"sVaria",
+				"sVariableTest2  (variable)"
+			],
+			[
+				"sMyVa",
+				"sMyVar2  (variable)"
+			],
+			[
+				"confirm",
+				"confirm_password_val"
+			],
+			[
+				"email",
+				"email_val"
+			],
+			[
+				"pr",
+				"profile_text_val"
+			],
+			[
+				"tex",
+				"text-align"
+			],
+			[
+				"conf",
+				"confirm_password_val"
+			],
+			[
+				"ju",
+				"jumbotron"
+			],
+			[
+				"fon",
+				"font-size"
+			],
+			[
+				"shi",
+				"shim_content"
+			],
+			[
+				"shim_",
+				"shim_login"
+			],
+			[
+				"shim",
+				"shim_home"
+			],
+			[
+				"home",
+				"home_shim"
+			],
+			[
+				"max",
+				"max-width"
+			],
+			[
+				"html",
+				"htmlspecialchars_decode"
+			],
+			[
+				"guide",
+				"guide_category_id"
+			],
+			[
+				"gu",
+				"guide_element_id"
+			],
+			[
+				"list",
+				"list-style-type"
+			],
+			[
+				"form",
+				"form_error"
+			],
+			[
+				"time",
+				"time_stamp"
+			],
+			[
+				"note",
+				"note_id"
+			],
+			[
+				"table",
+				"table_name"
+			],
+			[
+				"alert",
+				"alert_head"
+			],
+			[
+				"guide_cate",
+				"guide_category_id"
+			],
+			[
+				"notes_table",
+				"notes_table_name"
+			],
+			[
+				"ouptut",
+				"outputHTML"
+			],
+			[
+				"oupt",
+				"outputHTML"
+			],
+			[
+				"output",
+				"outputHTML"
+			],
+			[
+				"outp",
+				"outputHTML"
+			],
+			[
+				"check",
+				"check_privilege"
+			],
+			[
+				"admin_perm",
+				"admin_permissions_id"
+			],
+			[
+				"guide_cat",
+				"guide_category_id"
+			],
+			[
+				"date",
+				"date_created"
+			],
+			[
+				"guid",
+				"guide_change_log_id"
+			],
+			[
+				"guide_change",
+				"guide_change_log"
+			],
+			[
+				"sub",
+				"subcategory_name_array"
+			],
+			[
+				"new",
+				"new_data"
+			],
+			[
+				"admin",
+				"admin_id"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 267.0,
+		"selected_items":
+		[
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"pac in",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 449.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"sublime.run_command(\"toggle_menu\")",
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Applications/XAMPP/xamppfiles/htdocs/bootstrapsite/index.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/bootstrapsite/backup.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/bootstrapsite/test/backup.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/bootstrapsite/myprofile_image.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/bootstrapsite/lib/wrapper_functions.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/bootstrapsite/myprofile_description.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/bootstrapsite/lib/config.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/bootstrapsite/myprofile_user_info.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/bootstrapsite/login.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/bootstrapsite/signup.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/bootstrapsite/lib/scripts.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/bootstrapsite/logout.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/bootstrapsite/myprofile.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/bootstrapsite/bootstraptemplate.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/bootstrapsite/test/bootstraptemplate.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/bootstrapsite/test/db_connect.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/bootstrapsite/lib/db_connect.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/bootstrapsite/test/create_password_salt.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/bootstrapsite/lib/error_functions.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/bootstrapsite/css/styles.css",
+		"/Applications/XAMPP/xamppfiles/htdocs/bootstrapsite/test/data_thrower_session.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/bootstrapsite/test/data_thrower_cookie.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/bootstrapsite/test/data_thrower_post.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/bootstrapsite/test/data_thrower_get.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/bootstrapsite/test/data_catcher.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/bootstrapsite/test/data_receiver_session.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/bootstrapsite/test/data_receiver_post.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/bootstrapsite/test/data_receiver_get.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/bootstrapsite/test/data_receiver_cookie.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/bootstrapsite/profiles.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/bootstrapsite/lib/common_vars.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/bootstrapsite/test/crypt.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/bootstrapsite/bootstraptemplate.html",
+		"/Applications/XAMPP/xamppfiles/htdocs/bootstrapsite/test/foreach.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/bootstrapsite/test/errors_functions.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/bootstrapsite/test/array_access.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/bootstrapsite/test/arrays.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/bootstrapsite/template.html",
+		"/Applications/XAMPP/xamppfiles/htdocs/bootstrapsite/test/phpinfo.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/bootstrapsite/test/functions1.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/bootstrapsite/test/logic1.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/bootstrapsite/test/booleans.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/bootstrapsite/lib/output_bottom.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/bootstrapsite/lib/output_top.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/bootstrapsite/test/heredoc.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/bootstrapsite/js/workaround.js",
+		"/Applications/XAMPP/xamppfiles/htdocs/bootstrapsite/css/style2.css",
+		"/Applications/XAMPP/xamppfiles/htdocs/bootstrapsite/template2.html",
+		"/Applications/XAMPP/xamppfiles/htdocs/bootstrapsite/js/windows.js",
+		"/Applications/XAMPP/xamppfiles/htdocs/bootstrapsite/test/index.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/bootstrapsite/test/strings.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/bootstrapsite/test/includes.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/bootstrapsite/test/included_content1.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/bootstrapsite/test/included_content2.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/bootstrapsite/test/variables.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/anotherproject/index.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/anotherproject/test.php",
+		"/Users/rickmason/Desktop/GOW Companion/contact_form.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/twittersite/lib/untitled",
+		"/Users/rickmason/Desktop/GOW Companion/admin/guides/save.php",
+		"/Users/rickmason/Desktop/GOW Companion/admin/guides/guide_view.php",
+		"/Users/rickmason/Desktop/GOW Companion/admin/guides/edit_sort.php",
+		"/Users/rickmason/Desktop/GOW Companion/admin/custom_js.js",
+		"/Users/rickmason/Desktop/GOW Companion/admin/admin_style.css",
+		"/Users/rickmason/Desktop/GOW Companion/admin/js/tinyinit.js",
+		"/Users/rickmason/Desktop/GOW Companion/admin/js/tinymce/plugins/save/plugin.min.js",
+		"/Users/rickmason/Desktop/GOW Companion/admin/guides/edit_guide2.php",
+		"/Users/rickmason/Desktop/GOW Companion/admin/guides/edit_guide.php",
+		"/Users/rickmason/Desktop/GOW Companion/admin/guides/defense.php",
+		"/Users/rickmason/Desktop/GOW Companion/admin/guides/tinyinit.js",
+		"/Applications/XAMPP/xamppfiles/htdocs/myproject/test/index.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/project/admin/index.php",
+		"/var/folders/ll/_pnm1zj139g6rmjx_qd_3fv40000gn/T/tmpjmn1w3.html",
+		"/Applications/XAMPP/xamppfiles/htdocs/myproject/info.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/myproject/test/info.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/myproject/index.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/BootstrapTut/index.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/BootstrapTut/phpinfo.php",
+		"/Applications/XAMPP/xamppfiles/htdocs/xampp/index.php",
+		"/Users/rickmason/Desktop/GOW Companion/admin/home/profile.php",
+		"/Users/rickmason/Desktop/GOW Companion/admin/guides/ajax.category.post.php",
+		"/Users/rickmason/Desktop/GOW Companion/test/test.php",
+		"/Users/rickmason/Desktop/GOW Companion/admin/super_admin/view_admin.php",
+		"/Users/rickmason/Desktop/GOW Companion/admin/guides/guide_order.php",
+		"/Users/rickmason/Desktop/GOW Companion/admin/guides/test.php",
+		"/Users/rickmason/Desktop/GOW Companion/sftp-config.json",
+		"/Users/rickmason/Desktop/GOW Companion/index.php"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"$sBodyContent",
+			" <",
+			"echo"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 35.0
+	},
+	"input":
+	{
+		"height": 34.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.sftp":
+	{
+		"height": 172.0
+	},
+	"project": "signup.sublime-project",
+	"replace":
+	{
+		"height": 66.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 234.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

@@ -1,0 +1,1 @@
+<a href="data_catcher.php?myName=Rick&myHeight=6foot">Click Me</a>
