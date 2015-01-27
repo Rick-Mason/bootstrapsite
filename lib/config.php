@@ -10,4 +10,6 @@ define( 'DB_NAME', "bootstrap");
 define( 'DB_USER', "root");
 define( 'DB_PASS', "");
 
+define( 'IMAGE_MAX_WIDTH', 640 );
+
 define( 'PASSWORD_SALT', 'P14VtlebkRFSsNY78cU5kMgm6n4EsA==');

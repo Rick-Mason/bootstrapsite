@@ -49,6 +49,16 @@ function formSubmit( $sName, $sValue ){
   return $output;
 }
 
+function formFiles( $sName, $sDspLabelName) {
+  $output = "\n\t<div class=\"form-group\">\n";
+  $output .= "\t\t<label for=\"$sName\">$sDspLabelName</label>\n";
+  $output .= "\t\t<input type=\"file\" 
+                  id=\"$sName\"
+                  name=\"$sName\" />\n";
+  $output .= "\t</div>\n";
+  return $output;
+}
+
 function formTextarea($iRows, $sName, $sValue, $sDspLabelName, $sErrorMsg){
   $output  = "\t<div class=\"form-group\">\n";
   $output .= "\t\t<label for=\"$sName\" 
@@ -87,7 +97,11 @@ function formInput($sType, $sName, $sValue, $sDspLabelName, $sErrorMsg){
 function wrapFormTags ($sForm, $sMethod, $sAction, $encType = false){
   $output = "\n<form class=\"form-horizontal\"
                         method=\"$sMethod\" 
-                        action=\"$sAction\">\n";
+                        action=\"$sAction\" ";
+  if( $encType ) {
+    $output .= " enctype=\"multipart/form-data\" "; 
+  }
+  $output .= ">\n";
   $output .= $sForm;
   $output .= "</form>\n";
   return $output;

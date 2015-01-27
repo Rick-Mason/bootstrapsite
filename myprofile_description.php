@@ -85,7 +85,7 @@ if ( isset( $_POST['submit'] )) {
 				$dbAlert		= "success";
 				$dbStrongText	= "CONGRATULATIONS";
 				$dbMessage = ( $isEdit ) ? 
-						  "Your descriptionchanges have been saved." 
+						  "Your description changes have been saved." 
 						: "Your description has been saved to the database.";
 				
 				$isEdit			= true;
