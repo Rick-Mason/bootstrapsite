@@ -14,17 +14,15 @@ include_once( "lib/scripts.php");
 
 $isEdit 			= false;
 $sDspDescription 	= '';
-$sErrorMsg 			= "";
-
-$dbShowMessage 		= false;
-$dbMessage			= "";
-$dbAlert			= "";
-$dbStrongText 		= "";
-$extraDbMessage 	= "";
+$sErrorMsg			= "";
 
 $errors 			= false;
 $errorDescription 	= false;
 
+$showDbMessage 		= false;
+$dbMessage 			= "";
+$dbAlert 			= "";
+$dbStrongText 		= "";
 
 
 if( $_SESSION["user_logged"]) {
@@ -35,80 +33,70 @@ if( $_SESSION["user_logged"]) {
 	$stmt = $dbh->query( $sql );
 	$row = $stmt->fetch( PDO::FETCH_ASSOC );
 	if( $row ){
-		$sDspDescription = $row['user_description'];
+		$sDspDescription = htmlentities( $row['user_description'] );
 		$isEdit = true;
-	}
+	} 
 } 
-
 
 /**
  * PROCESSING - Process the form
  */
 
-if ( isset( $_POST['submit'] )) {
-	if ( !empty( $_POST['inputDescription'] )) {
-		$sDspDescription = 
-			strip_tags( 
-				$_POST['inputDescription'],
-				"<strong><em><br><hr><p><a>");
-		$sDatabaseDescription = htmlentities( $sDspDescription );
+if ( isset( $_POST[ 'submit' ] )) {
+	if( !empty(  $_POST[ 'inputDescription' ] )) { 
+		$sDspDescription = strip_tags( 
+					$_POST[ 'inputDescription' ],
+					"<strong><em><br><a><hr><p>");
 	} else {
-		$errros 			= true;
+		$errors 			= true;
 		$errorDescription 	= true;
 	}
 
-	if( !$errors ) {
-		// do the database insert
-		if ( $isEdit ) {
-			//update query
-			$sql = "UPDATE 
-						user_description 
-					SET 
-						user_description 	= :user_description
-					WHERE
-						user_id 			= {$_SESSION['user_id']}";
-		} else {
-			//insert query
-			$sql = "INSERT INTO 
-						user_description 
-					SET 
-						user_description 	= :user_description,
-						user_id 			= {$_SESSION['user_id']}";
-		}
+	if ( !$errors ) {
 		try {
-			$stmt = $dbh->prepare( $sql );
-			$checkSuccess = $stmt->execute( 
-						[ ":user_description" => $sDatabaseDescription ] );
-
-			if( $checkSuccess ){
-				$dbShowMessage 	= true;
-				$dbAlert		= "success";
-				$dbStrongText	= "CONGRATULATIONS";
-				$dbMessage = ( $isEdit ) ? 
-						  "Your descriptionchanges have been saved." 
-						: "Your description has been saved to the database.";
-				
-				$isEdit			= true;
-
+			if( $isEdit ) {
+				$sql = "UPDATE
+							user_description
+						SET 
+							user_description 	= :user_description
+						WHERE
+							user_id				= {$_SESSION['user_id']}";
 			} else {
-				$dbShowMessage 	= true;
-				$dbAlert 		= "danger";
-				$dbStrongText 	= "ERROR";
-				$dbMessage 		= "There was a database error.";
-				$isEdit			= true;
+				$sql = "INSERT INTO
+							user_description
+						SET 
+							user_description 	= :user_description,
+							user_id				= {$_SESSION['user_id']}";	
+			}
 
+			
+			$stmt = $dbh->prepare( $sql );
+			$checkSuccess = 
+					$stmt->execute( 
+						[ ":user_description" => $sDspDescription ]
+								  );
+			if( $checkSuccess ){
+				$showDbMessage	= true;
+				if( $isEdit ){
+					$dbMessage 		= "Your description has been changed in the database.";
+				} else {
+					$dbMessage 		= "Your paragraph was added to the database.";
+				}
+				
+				$dbAlert 		= "success";
+				$dbStrongText 	= "CONGRATULATIONS";
+			} else {
+				$showDbMessage 	= true;
+				$dbMessage	 	= "There was a problem with the database.";
+				$dbAlert		= "danger";
+				$dbStrongText 	= "ERROR";
 			}
 
 		} catch ( PDOException $e ) {
 			echo $e;
 		}
-
 	}
 }
-
-
-
-
 
 /**
  * HTML - Contstruct the page
@@ -132,27 +120,32 @@ $inputDescription = formTextarea ( 5,
 							"Tell us about youreself.", 
 							$sErrorMsg);
 $sErrorMsg = "";
+
 if ( $isEdit ){
 	$inputSubmit = formSubmit( "submit", "Edit Description");
 } else {
-	$inputSubmit = formSubmit( "submit", "Add Description");
+	$inputSubmit = formSubmit( "submit", "Save");
 }
 
-$sCompleteForm = wrapFormTags( $inputDescription . $inputSubmit, 
-								"post", 
-								$_SERVER['PHP_SELF'] );
- 
-$moreContent = wrapContainer($sCompleteForm);
-
-
-if( $dbShowMessage ) {
+if( $showDbMessage ){
 	$extraDbMessage = wrapAlert( $dbAlert, $dbStrongText, $dbMessage );
 	$extraDbMessage = wrapContainer( $extraDbMessage );
+} else {
+	$extraDbMessage = "";
 }
 
 
+$sCompleteForm = wrapFormTags( 	$inputDescription 
+								. $inputSubmit, 
+								"post", 
+								$_SERVER['PHP_SELF'] );
+
+
+
+
+$moreContent = wrapContainer($sCompleteForm );
 $leftColContent = wrapColumn( $jumboContent . $moreContent, 9 );
-$rowContent = wrapRow( $rightColContent . $leftColContent . $extraDbMessage );
+$rowContent = wrapRow( $rightColContent . $leftColContent . $extraDbMessage  );
 
 
 

@@ -103,6 +103,10 @@ body {
     margin-top: 60px;
   }
 
+  textarea {
+    width:75%;
+  }
+
 @media (min-width: 768px) {
   /* Navbar positioning foo */
   .navbar-wrapper {
@@ -135,6 +139,10 @@ body {
   .nav-bar-fix{
     margin-top: 90px;
   }
+
+  textarea {
+    width:97% !important;
+  }
 }
 
 @media (min-width: 992px) {
@@ -143,6 +151,9 @@ body {
   }
   .nav-bar-fix{
     margin-top: 110px;
+  }
+  textarea {
+    width:63% !important;
   }
   
 }

@@ -49,6 +49,23 @@ function formSubmit( $sName, $sValue ){
   return $output;
 }
 
+function formTextarea($iRows, $sName, $sValue, $sDspLabelName, $sErrorMsg){
+  $output  = "\t<div class=\"form-group\">\n";
+  $output .= "\t\t<label for=\"$sName\" 
+                class=\"col-sm-3 control-label\">$sDspLabelName</label>\n";
+  $output .= "\t\t<div class=\"col-sm-9\">\n";
+  $output .= "\t\t\t<textarea 
+                      name=\"$sName\"
+                      class=\"form-control\" 
+                      id=\"$sName\" 
+                      rows=\"$iRows\"
+                      placeholder=\"$sDspLabelName\">$sValue</textarea>\n";
+  $output .= $sErrorMsg;
+  $output .= "\t\t</div>\n";
+  $output .= "\t</div>\n";
+  return $output;
+}
+
 function formInput($sType, $sName, $sValue, $sDspLabelName, $sErrorMsg){
   $output  = "\t<div class=\"form-group\">\n";
   $output .= "\t\t<label for=\"$sName\" 
@@ -68,7 +85,7 @@ function formInput($sType, $sName, $sValue, $sDspLabelName, $sErrorMsg){
 }
 
 function wrapFormTags ($sForm, $sMethod, $sAction, $encType = false){
-  $output = "\n<form class=\"form-horizontal\" 
+  $output = "\n<form class=\"form-horizontal\"
                         method=\"$sMethod\" 
                         action=\"$sAction\">\n";
   $output .= $sForm;
