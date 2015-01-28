@@ -97,6 +97,10 @@ body {
     margin-top: 10px;
   }
 
+  .table tbody>tr>td.vert-align {
+    vertical-align: middle;
+  }
+
 /* RESPONSIVE CSS
 -------------------------------------------------- */
   .nav-bar-fix{

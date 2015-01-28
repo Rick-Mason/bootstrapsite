@@ -1,6 +1,10 @@
 <?php
+session_start();
 include_once( "lib/error_functions.php" );
+include_once( "lib/config.php" );
 include_once( "lib/wrapper_functions.php" );
+include_once( "lib/db_connect.php" );
+include_once( "lib/scripts.php");
 
 $sTitle         = "BootStrap Site Home";
 $sTopContent    = outputTop( $sTitle, "Home" );
@@ -21,9 +25,8 @@ $sBodyContent   = <<<EOB
           <img src="images/site/carosel1.png" alt="First slide">
           <div class="container">
             <div class="carousel-caption">
-              <h1>Example headline.</h1>
-              <p>Note: If you're viewing this page via a <code>file://</code> URL, the "next" and "previous" Glyphicon buttons on the left and right might not load/display properly due to web browser security rules.</p>
-              <p><a class="btn btn-lg btn-success" href="#" role="button">Sign up today</a></p>
+              <h1>Welcome to my Bootstrap Site</h1>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean congue metus ut leo tristique, sed suscipit tellus sagittis. Suspendisse potenti. Quisque consequat aliquet massa id luctus. Vivamus dui dui, placerat sed leo a, consequat placerat neque. Vivamus molestie nisi eros. Vestibulum rhoncus interdum purus, vel tempus ex. Donec non ante neque. Etiam bibendum vulputate velit, a pellentesque dolor.</p>
             </div>
           </div>
         </div>

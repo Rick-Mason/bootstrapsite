@@ -1,7 +1,7 @@
 <?php
 //echo 1;
 
-function sidebar(){
+function sidebar( ) {
   $current_page = str_replace("/bootstrapsite/", "", $_SERVER['PHP_SELF']);
   $aLinks = [
               "myprofile.php" => "View My Profile",
@@ -22,22 +22,36 @@ function sidebar(){
   return $output;
 }
 
-function wrapColumn($html, $iNumCols){
+function wrapColumn( $html, $iNumCols ) {
   $output = "\n\t\t<div class=\"col-md-$iNumCols\">\n";
   $output .= $html;
   $output .= "\t</div>\n";
   return $output;
 }
 
-function wrapRow($html){
+function wrapRow( $html ) {
   $output = "\n\t<div class=\"row\">\n";
   $output .= $html;
   $output .= "\t</div>\n";
   return $output;
 }
 
+function wrapImageTag ( $sPath, $sSizeConstraints = "" ) {
+  $output = "<img src=\"$sPath\" ";
+  $output .= "class=\"img-responsive\" ";
+  if( !empty( $sSizeConstraints )){
+    $output .= $sSizeConstraints;
+  }
+  $output .= "alt=\"Responsive image\">";
+  return $output;
+}
 
-function formSubmit( $sName, $sValue ){
+function wrapLinkButton( $sClasses, $sPath, $sLabel ) {
+  return "<a class=\"$sClasses\" href=\"$sPath\" role=\"button\">$sLabel</a>";
+}
+
+
+function formSubmit( $sName, $sValue ) {
   $output = "\t<div class=\"form-group\">\n";
   $output .= "\t\t<div class=\"col-sm-offset-3 col-sm-9\">\n";
   $output .= "\t\t\t<input type=\"submit\" 
@@ -59,7 +73,7 @@ function formFiles( $sName, $sDspLabelName) {
   return $output;
 }
 
-function formTextarea($iRows, $sName, $sValue, $sDspLabelName, $sErrorMsg){
+function formTextarea( $iRows, $sName, $sValue, $sDspLabelName, $sErrorMsg ) {
   $output  = "\t<div class=\"form-group\">\n";
   $output .= "\t\t<label for=\"$sName\" 
                 class=\"col-sm-3 control-label\">$sDspLabelName</label>\n";
@@ -76,7 +90,7 @@ function formTextarea($iRows, $sName, $sValue, $sDspLabelName, $sErrorMsg){
   return $output;
 }
 
-function formInput($sType, $sName, $sValue, $sDspLabelName, $sErrorMsg){
+function formInput( $sType, $sName, $sValue, $sDspLabelName, $sErrorMsg ){
   $output  = "\t<div class=\"form-group\">\n";
   $output .= "\t\t<label for=\"$sName\" 
                 class=\"col-sm-3 control-label\">$sDspLabelName</label>\n";
@@ -94,7 +108,7 @@ function formInput($sType, $sName, $sValue, $sDspLabelName, $sErrorMsg){
   return $output;
 }
 
-function wrapFormTags ($sForm, $sMethod, $sAction, $encType = false){
+function wrapFormTags ( $sForm, $sMethod, $sAction, $encType = false) {
   $output = "\n<form class=\"form-horizontal\"
                         method=\"$sMethod\" 
                         action=\"$sAction\" ";
@@ -107,7 +121,7 @@ function wrapFormTags ($sForm, $sMethod, $sAction, $encType = false){
   return $output;
 }
 
-function wrapJumbotron($sStringData){
+function wrapJumbotron( $sStringData ) {
   $output = "\n<div class=\"jumbotron\">\n";
   $output .= $sStringData;
   $output .= "</div>\n";
@@ -115,7 +129,7 @@ function wrapJumbotron($sStringData){
 }
 
 
-function wrapAlert($sAlertType, $sStrongText, $sNormalText){
+function wrapAlert( $sAlertType, $sStrongText, $sNormalText ){
   $aPossibleAlerts = ['success', 'info', 'warning', 'danger'];
   $output = "";
   if( !in_array( $sAlertType, $aPossibleAlerts )){
@@ -136,9 +150,6 @@ function wrapAlert($sAlertType, $sStrongText, $sNormalText){
   $output .= '</div>';
   return $output;
 }
-
-
-
 
 
 function wrapContainer($sData){

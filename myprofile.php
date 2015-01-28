@@ -4,18 +4,74 @@ include_once( "lib/error_functions.php" );
 include_once( "lib/config.php" );
 include_once( "lib/wrapper_functions.php" );
 include_once( "lib/db_connect.php" );
-include_once( "lib/scripts.php");
+include_once( "lib/scripts.php" );
 
 
 
 /**
- * VARS - Initialize variables for later use
+ * Pull all relavent data from the database in one query
  */
 
+$sql = "SELECT 	
+			user.user_name,
+			user.user_email,
+			user_description.user_description,
+			user_personal_info.user_phone,
+			user_personal_info.user_first,
+			user_personal_info.user_last,
+			user_image.image_name
+		FROM 
+			user, 
+			user_description, 
+			user_personal_info,
+			user_image
+		WHERE 
+			user.user_id = {$_SESSION['user_id']}
+		AND
+			user.user_id = user_description.user_id
+		AND 
+			user.user_id = user_personal_info.user_id
+		AND 
+			user.user_id = user_image.user_id";
+var_dump( $sql );
+$stmt = $dbh->query( $sql );
+$row = $stmt->fetch( PDO::FETCH_ASSOC );
 
-/**
- * PROCESSING - Process the form
- */
+$sEmail = $row['user_email'];
+$sUserName = $row['user_name'];
+var_dump( $sUserName );
+
+
+if ( $row['user_description'] ) {
+	$sUserDescription = html_entity_decode( $row['user_description']);
+} else {
+	$sUserDescription = "<h3>No paragraph on file</h3>";
+}
+
+if ( $row['user_first'] ) {
+	$sUserFirstAndLast = ucfirst( $row['user_first']) 
+						 . " "
+						 . ucfirst ( $row['user_last']);
+} else {
+	$sUserFirstAndLast = "No First and Last name on file.";
+}
+
+if( $row['user_phone'] ) {
+	$sUserPhone = formatPhone( $row['user_phone'] );
+} else {
+	$sUserPhone = "No Phone number on file.";
+}
+
+if( $row['image_name'] ) {
+	$sImagePath = IMAGE_BASE_PATH . $row['image_name'];
+	$sImageString = wrapImageTag( $sImagePath );
+} else {
+	$sImageString = "<h3>No Image on File</h3>";
+}
+
+
+
+
 
 
 
@@ -29,10 +85,14 @@ $sidebar = sidebar();
 $rightColContent = wrapColumn( $sidebar, 3 );
 
 //left column
-$jumboContent = wrapJumbotron( "<h2>Welcome to your profile</h2>");
-$morecontent = "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed porttitor, lorem id luctus sodales, purus leo venenatis magna, eu gravida nisi est sed metus. Ut iaculis massa vel tortor fermentum tempus. Donec scelerisque libero quis eros varius, at fringilla magna malesuada. In scelerisque tellus a lectus mollis rutrum. Sed sodales congue imperdiet. Vestibulum eu congue nibh. Sed nec vulputate neque. Curabitur tristique, sapien nec ullamcorper hendrerit, nunc diam varius purus, at vestibulum lacus sem in arcu. Proin luctus elementum porttitor. Phasellus finibus, orci pharetra sagittis fringilla, sem ligula vulputate metus, et congue lectus arcu non enim. Phasellus maximus metus eget dolor lobortis ultricies. Pellentesque porttitor enim tortor, at auctor ipsum sollicitudin nec. Donec imperdiet arcu eu venenatis placerat. Integer accumsan metus justo, eget luctus neque malesuada commodo. Etiam ornare blandit elit vitae consectetur.
 
-Praesent dolor dui, feugiat in erat vel, vehicula blandit tortor. Vivamus ut tortor a magna viverra blandit sit amet a felis. Nullam sit amet sapien lobortis felis ornare auctor. Sed mattis urna eu aliquet dapibus. Ut lacinia tempus libero sit amet tincidunt. Proin quam quam, varius eget suscipit quis, laoreet eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nullam nec convallis arcu. Suspendisse efficitur congue lectus, vel vestibulum purus dictum quis.</p>";
+
+
+$jumboContent = wrapJumbotron( "<h1>$sUserName</h1>" );
+$morecontent =  $sImageString;
+$morecontent .= "<h2>$sUserFirstAndLast</h2>";
+$morecontent .= "<h4>$sUserPhone</h4>";
+$morecontent .= $sUserDescription;
 
 $leftColContent = wrapColumn( $jumboContent . $morecontent, 9 );
 
