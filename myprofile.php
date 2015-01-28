@@ -92,6 +92,7 @@ $jumboContent = wrapJumbotron( "<h1>$sUserName</h1>" );
 $morecontent =  $sImageString;
 $morecontent .= "<h2>$sUserFirstAndLast</h2>";
 $morecontent .= "<h4>$sUserPhone</h4>";
+$morecontent .= "<p>$sUserEmail</p>";
 $morecontent .= $sUserDescription;
 
 $leftColContent = wrapColumn( $jumboContent . $morecontent, 9 );
