@@ -7,13 +7,17 @@ include_once( "lib/db_connect.php" );
 include_once( "lib/scripts.php");
 
 
+
+
 $sql = "SELECT 
-          user.user_id,
+          user.user_id, 
           user.user_name,
-          user_image.image_name
+          user_image.image_name 
         FROM 
-          user, user_image
-        WHERE
+          user 
+        LEFT JOIN 
+          user_image 
+        ON 
           user.user_id = user_image.user_id
         ORDER BY
           user.user_name";
@@ -22,23 +26,27 @@ try {
   $sTableRows = "";
   $sTableCellOpen = "<td class=\"vert-align\">";
   $stmt = $dbh->query( $sql );
-  while ( $row = $stmt->fetch( PDO::FETCH_ASSOC )){
+  while ( $row = $stmt->fetch( PDO::FETCH_ASSOC )) {
     $userId = $row['user_id'];
-    $sTableRows .= "<tr>";
-    $sTableRows .= "<td>";
-    $imagePath  = IMAGE_BASE_PATH . $row[ "image_name"];
-    list( $iWidth, $iHeight ) = getimagesize($imagePath);
-    if( $iWidth > 150 ){
-      $fScale     = $iWidth / $iHeight;
-      $iNewWidth  = 150;
-      $iNewHeigth = intval( $iNewWidth / $fScale );
+    $sTableRows .= "<tr>" . $sTableCellOpen;
+    if( $row['image_name'] ){
+      $imagePath  = IMAGE_BASE_PATH . $row[ "image_name"];
+      list( $iWidth, $iHeight ) = getimagesize($imagePath);
+      if( $iWidth > 150 ){
+        $fScale     = $iWidth / $iHeight;
+        $iNewWidth  = 150;
+        $iNewHeigth = intval( $iNewWidth / $fScale );
+      } else {
+        $iNewWidth  = $iWidth;
+        $iNewHeigth = $iHeight;
+      }
+      $sSizeConstaints = " width=\"$iNewWidth\" height=\"$iNewHeigth\" ";
+      $sTableRows .= $sTableCellOpen;
+      $sTableRows .= wrapImageTag( $imagePath, $sSizeConstaints );
     } else {
-      $iNewWidth  = $iWidth;
-      $iNewHeigth = $iHeight;
+      $sTableRows .= $sTableCellOpen . "&nbsp;"; 
     }
-    $sSizeConstaints = " width=\"$iNewWidth\" height=\"$iNewHeigth\" ";
-    $sTableRows .= $sTableCellOpen;
-    $sTableRows .= wrapImageTag( $imagePath, $sSizeConstaints );
+    
     $sTableRows .= "</td>";
     $sTableRows .= $sTableCellOpen;
     $sTableRows .= "<h3>" . $row['user_name'] . "</h3>";
@@ -46,7 +54,7 @@ try {
     $sTableRows .= $sTableCellOpen;
     $sTableRows .= wrapLinkButton( 
                     "btn btn-md btn-success" , 
-                    "view_profile.php?user_id=$userId", 
+                    "viewprofile.php?user_id=$userId", 
                     ">> VIEW PROFILE" );
     $sTableRows .= "</td>";
     $sTableRows .= "</tr>";
