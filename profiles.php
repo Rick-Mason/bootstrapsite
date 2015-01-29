@@ -29,6 +29,7 @@ try {
   while ( $row = $stmt->fetch( PDO::FETCH_ASSOC )) {
     $userId = $row['user_id'];
     $sTableRows .= "<tr>" . $sTableCellOpen;
+    $sGetStringUserName = "&user_name=" . urlencode( $row['user_name'] );
     if( $row['image_name'] ){
       $imagePath  = IMAGE_BASE_PATH . $row[ "image_name"];
       list( $iWidth, $iHeight ) = getimagesize($imagePath);
@@ -41,10 +42,16 @@ try {
         $iNewHeigth = $iHeight;
       }
       $sSizeConstaints = " width=\"$iNewWidth\" height=\"$iNewHeigth\" ";
+      $sTheImage   = wrapImageTag( $imagePath, $sSizeConstaints );
       $sTableRows .= $sTableCellOpen;
-      $sTableRows .= wrapImageTag( $imagePath, $sSizeConstaints );
+      $sTableRows .= "<a href=\"imageview.php?user_id=$userId$sGetStringUserName\" 
+                        data-toggle=\"modal\" data-target=\"#basicModal3\">";
+      $sTableRows .= $sTheImage;
+      $sTableRows .= "</a>";
+      
+
     } else {
-      $sTableRows .= $sTableCellOpen . "&nbsp;"; 
+      $sTableRows .= $sTableCellOpen . "&nbsp;";
     }
     
     $sTableRows .= "</td>";

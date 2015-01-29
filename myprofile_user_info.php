@@ -6,8 +6,6 @@ include_once( "lib/wrapper_functions.php" );
 include_once( "lib/db_connect.php" );
 include_once( "lib/scripts.php");
 
-
-
 /**
  * VARS - Initialize variables for later use
  */
@@ -41,9 +39,6 @@ if( $row ){
 }
 
 $sErrorMsg 		= "";
-
-
-
 
 /**
  * PROCESSING - Process the form
@@ -129,14 +124,12 @@ if ( isset( $_POST['submit'])){
  * HTML - Contstruct the page
  */
 
-
 //right column
 $sidebar = sidebar();
 $rightColContent = wrapColumn( $sidebar, 3 );
 
 //left column
 $jumboContent = wrapJumbotron( "<h2>Add/Edit Personal Info</h2>");
-
 
 
 //phone html
@@ -153,7 +146,6 @@ $inputPhone = formInput(	"text",
 $sErrorMsg = "";
 
 
-
 //first name html
 if( $errorFirst ){
 	$sErrorMsg = wrapAlert( "danger", 
@@ -166,7 +158,6 @@ $inputFirst = formInput(	"text",
 							"Your First Name", 
 							$sErrorMsg);
 $sErrorMsg = "";
-
 
 //last name html
 if( $errorLast ){
@@ -183,8 +174,6 @@ $sErrorMsg = "";
 
 $inputSubmit = formSubmit( "submit", $sDspSubmitText );
 
-
-
 $moreContent = wrapFormTags (	$inputPhone . $inputFirst . $inputLast . $inputSubmit, 
 								"post", 
 								$_SERVER['PHP_SELF'], 
@@ -194,15 +183,11 @@ $leftColContent = wrapColumn( $jumboContent . $moreContent, 9 );
 $rowContent = wrapRow( $rightColContent . $leftColContent );
 
 
-
-
 $sTitle         = "Add Edit Personal Info";
 $sTopContent    = outputTop( $sTitle, "My Profile" );
 $sBottomContent = outputBottom();
 $sBodyContent   = outputNavBarFix();
 $sBodyContent  .= wrapContainer( $rowContent );
-
-
 
 
 /**
@@ -213,8 +198,5 @@ $sFinalOutput .= $sBodyContent;
 $sFinalOutput .= $sBottomContent;
 
 echo $sFinalOutput;
-
-
-
 
 ?>

@@ -266,7 +266,10 @@ function outputBottom(){
     <div class="container">
       <footer>
         <p class="pull-right"><a href="#">Back to top</a></p>
-        <p>&copy; 2014 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+        <p>&copy; 2014 Company, Inc. &middot; 
+        <a href="privacy.html" data-toggle="modal" data-target="#basicModal1">Privacy</a>
+         &middot; 
+         <a href="tos.html" data-toggle="modal" data-target="#basicModal2">Terms</a></p>
       </footer>
     </div><!-- /.container  -->
 
@@ -281,6 +284,24 @@ function outputBottom(){
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="js/workaround.js"></script>
+    <div class="modal fade" id="basicModal1" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+        </div><!-- /end .modal-content-->
+      </div><!-- /end .modal-dialog-->
+    </div><!-- /end .modal-->
+    <div class="modal fade" id="basicModal2" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+        </div><!-- /end .modal-content-->
+      </div><!-- /end .modal-dialog-->
+    </div><!-- /end .modal-->
+    <div class="modal fade" id="basicModal3" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+        </div><!-- /end .modal-content-->
+      </div><!-- /end .modal-dialog-->
+    </div><!-- /end .modal-->
   </body>
 </html>
 
