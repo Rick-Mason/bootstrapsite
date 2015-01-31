@@ -17,10 +17,10 @@ try {
 			FROM 
 				user_image
 			WHERE 
-				user_id = {$_SESSION['user_id']}";
+				user_id = {$_SESSION[ 'user_id' ]}";
 	$stmt = $dbh->query( $sql );
 	$row = $stmt->fetch( PDO::FETCH_ASSOC );
-	if( $row ) {	
+	if ( $row ) {	
 		$sImageName = $row[ 'image_name' ];
 		$isEdit = true;
 	} else {
@@ -38,12 +38,12 @@ $errorImage = false;
  * PROCESSING - Process the form and delete image link
  */
 
-if ( isset( $_GET['formaction'])
-		&& "delete_image" == $_GET['formaction']) {
+if ( isset( $_GET[ 'formaction' ] )
+		&& "delete_image" == $_GET[ 'formaction' ] ) {
 	$sql = "DELETE FROM 
 				user_image 
 			WHERE 
-				user_id = {$_SESSION['user_id']}";
+				user_id = {$_SESSION[ 'user_id' ]}";
 	$stmt = $dbh->query( $sql );
 	$checkUnlink = unlink( IMAGE_BASE_PATH . $sImageName );
 	$isEdit = false;
@@ -51,7 +51,7 @@ if ( isset( $_GET['formaction'])
 
 
 
-if ( isset( $_POST[ 'submit' ]) ) {
+if ( isset( $_POST[ 'submit' ] )) {
 	
 
 	// list takes and array and puts each value into the variables
@@ -92,7 +92,7 @@ if ( isset( $_POST[ 'submit' ]) ) {
 			break;
 	}
 	
-	if( !$errorImage ) { 
+	if ( !$errorImage ) { 
 		$iNewWidth = ( $iOriginalWidth > IMAGE_MAX_WIDTH ) 
 						? IMAGE_MAX_WIDTH : $iOriginalWidth;
 
@@ -149,12 +149,12 @@ if ( isset( $_POST[ 'submit' ]) ) {
 			$sql = "INSERT INTO 
 						user_image
 					SET 
-						user_id 	= {$_SESSION['user_id']},
+						user_id 	= {$_SESSION[ 'user_id' ]},
 						image_name 	= '$sNewImageName'";
 			$stmt = $dbh->query( $sql );
 			$isEdit = true;
 			$sImageName = $sNewImageName;
-		} catch (PDOException $e ){
+		} catch ( PDOException $e ){
 			echo $e;
 		}
 		
@@ -174,25 +174,25 @@ $sidebar = sidebar();
 $rightColContent = wrapColumn( $sidebar, 3 );
 
 //left column
-$jumboContent = wrapJumbotron( "<h2>Add/Edit Profile Image</h2>");
-if( $errorImage ){
+$jumboContent = wrapJumbotron( "<h2>Add/Edit Profile Image</h2>" );
+if ( $errorImage ){
 	$sErrorMsg = wrapAlert( "danger", 
 							"ERROR!", 
-							"Please choose an image.");
+							"Please choose an image." );
 }
 $inputImage = formFiles (	"inputImage", 
-							"Choose an image.");
+							"Choose an image." );
 
-$inputSubmit = formSubmit( "submit", "Add Image");
+$inputSubmit = formSubmit( "submit", "Add Image" );
 
 $sCompleteForm = wrapFormTags( 
 								$inputImage . $inputSubmit, 
 								"post", 
-								$_SERVER['PHP_SELF'],
+								$_SERVER[ 'PHP_SELF' ],
 								true
 							  );
 
-if( $isEdit ) {
+if ( $isEdit ) {
  	//build the image from the database.
  	$imagePath = IMAGE_BASE_PATH . $sImageName;
  	$moreContent = wrapImageTag( $imagePath );
@@ -200,7 +200,7 @@ if( $isEdit ) {
 
  	//create a delete image button
  	$sDeleteUrl = $_SERVER['PHP_SELF'] . "?formaction=delete_image";
- 	$moreContent .= wrapLinkButton( "btn btn-warning btn-lg", $sDeleteUrl, "Delete Image");
+ 	$moreContent .= wrapLinkButton( "btn btn-warning btn-lg", $sDeleteUrl, "Delete Image" );
  } else {
  	$moreContent = wrapContainer($sCompleteForm);
  }

@@ -27,15 +27,15 @@ $errorDescription 	= false;
 
 
 
-if( $_SESSION["user_logged"]) {
+if ( $_SESSION[ 'user_logged' ] ) {
 	$sql = "SELECT 
 				user_description 
 			FROM user_description 
-			WHERE user_id = {$_SESSION['user_id']}";
+			WHERE user_id = {$_SESSION[ 'user_id' ]}";
 	$stmt = $dbh->query( $sql );
 	$row = $stmt->fetch( PDO::FETCH_ASSOC );
-	if( $row ){
-		$sDspDescription = $row['user_description'];
+	if ( $row ) {
+		$sDspDescription = $row[ 'user_description' ];
 		$isEdit = true;
 	}
 } 
@@ -45,19 +45,19 @@ if( $_SESSION["user_logged"]) {
  * PROCESSING - Process the form
  */
 
-if ( isset( $_POST['submit'] )) {
-	if ( !empty( $_POST['inputDescription'] )) {
+if ( isset( $_POST[ 'submit' ] )) {
+	if ( !empty( $_POST[ 'inputDescription' ] )) {
 		$sDspDescription = 
 			strip_tags( 
-				$_POST['inputDescription'],
-				"<strong><em><br><hr><p><a>");
+				$_POST[ 'inputDescription' ],
+				"<strong><em><br><hr><p><a>" );
 		$sDatabaseDescription = htmlentities( $sDspDescription );
 	} else {
 		$errros 			= true;
 		$errorDescription 	= true;
 	}
 
-	if( !$errors ) {
+	if ( !$errors ) {
 		// do the database insert
 		if ( $isEdit ) {
 			//update query
@@ -66,21 +66,21 @@ if ( isset( $_POST['submit'] )) {
 					SET 
 						user_description 	= :user_description
 					WHERE
-						user_id 			= {$_SESSION['user_id']}";
+						user_id 			= {$_SESSION[ 'user_id' ]}";
 		} else {
 			//insert query
 			$sql = "INSERT INTO 
 						user_description 
 					SET 
 						user_description 	= :user_description,
-						user_id 			= {$_SESSION['user_id']}";
+						user_id 			= {$_SESSION[ 'user_id' ]}";
 		}
 		try {
 			$stmt = $dbh->prepare( $sql );
 			$checkSuccess = $stmt->execute( 
 						[ ":user_description" => $sDatabaseDescription ] );
 
-			if( $checkSuccess ){
+			if ( $checkSuccess ){
 				$dbShowMessage 	= true;
 				$dbAlert		= "success";
 				$dbStrongText	= "CONGRATULATIONS";
@@ -120,32 +120,32 @@ $sidebar = sidebar();
 $rightColContent = wrapColumn( $sidebar, 3 );
 
 //left column
-$jumboContent = wrapJumbotron( "<h2>Add/Edit Profile Description</h2>");
-if( $errorDescription ){
+$jumboContent = wrapJumbotron( "<h2>Add/Edit Profile Description</h2>" );
+if ( $errorDescription ) {
 	$sErrorMsg = wrapAlert( "danger", 
 							"ERROR!", 
-							"Please enter a paragraph about yourself.");
+							"Please enter a paragraph about yourself." );
 }
 $inputDescription = formTextarea ( 5, 
 							"inputDescription", 
 							$sDspDescription, 
 							"Tell us about youreself.", 
-							$sErrorMsg);
+							$sErrorMsg );
 $sErrorMsg = "";
-if ( $isEdit ){
-	$inputSubmit = formSubmit( "submit", "Edit Description");
+if ( $isEdit ) {
+	$inputSubmit = formSubmit( "submit", "Edit Description" );
 } else {
-	$inputSubmit = formSubmit( "submit", "Add Description");
+	$inputSubmit = formSubmit( "submit", "Add Description" );
 }
 
 $sCompleteForm = wrapFormTags( $inputDescription . $inputSubmit, 
 								"post", 
-								$_SERVER['PHP_SELF'] );
+								$_SERVER[ 'PHP_SELF' ] );
  
 $moreContent = wrapContainer($sCompleteForm);
 
 
-if( $dbShowMessage ) {
+if ( $dbShowMessage ) {
 	$extraDbMessage = wrapAlert( $dbAlert, $dbStrongText, $dbMessage );
 	$extraDbMessage = wrapContainer( $extraDbMessage );
 }

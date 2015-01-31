@@ -32,7 +32,7 @@ include_once( "lib/scripts.php" );
 			user_personal_info,
 			user_image
 		WHERE 
-			user.user_id = {$_SESSION['user_id']}
+			user.user_id = {$_SESSION[ 'user_id' ]}
 		AND
 			user.user_id = user_description.user_id
 		AND 
@@ -53,15 +53,15 @@ $sql = "SELECT
 		ON 
 			user.user_id = user_image.user_id
 		WHERE 
-			user.user_id = {$_SESSION['user_id']}";
+			user.user_id = {$_SESSION[ 'user_id' ]}";
 
 $stmt = $dbh->query( $sql );
 $row = $stmt->fetch( PDO::FETCH_ASSOC );
-$sUserEmail = $row['user_email'];
-$sUserName = $row['user_name'];
+$sUserEmail = $row[ 'user_email' ];
+$sUserName = $row[ 'user_name' ];
 
-if( $row['image_name'] ) {
-	$sImagePath = IMAGE_BASE_PATH . $row['image_name'];
+if( $row[ 'image_name' ] ) {
+	$sImagePath = IMAGE_BASE_PATH . $row[ 'image_name' ];
 	$sImageString = wrapImageTag( $sImagePath );
 } else {
 	$sImageString = "<h3>No Image on File</h3>";
@@ -74,11 +74,11 @@ $sql = "SELECT
 		FROM 
 			user_description
 		WHERE
-			user_id = {$_SESSION['user_id']}";
+			user_id = {$_SESSION[ 'user_id' ]}";
 $stmt = $dbh->query( $sql );
 $row  = $stmt->fetch( PDO::FETCH_ASSOC );
-if ( $row['user_description'] ) {
-	$sUserDescription = html_entity_decode( $row['user_description']);
+if ( $row[ 'user_description' ] ) {
+	$sUserDescription = html_entity_decode( $row[ 'user_description' ] );
 } else {
 	$sUserDescription = "<h3>No paragraph on file</h3>";
 }
@@ -92,19 +92,19 @@ $sql = "SELECT
 		FROM	
 			user_personal_info
 		WHERE
-			user_id = {$_SESSION['user_id']}";
+			user_id = {$_SESSION[ 'user_id' ]}";
 $stmt = $dbh->query( $sql );
 $row  = $stmt->fetch( PDO::FETCH_ASSOC );
 
-if ( $row['user_first'] ) {
-	$sUserFirstAndLast = ucfirst( $row['user_first']) 
+if ( $row[ 'user_first' ] ) {
+	$sUserFirstAndLast = ucfirst( $row[ 'user_first' ] ) 
 						 . " "
-						 . ucfirst ( $row['user_last']);
+						 . ucfirst ( $row[ 'user_last' ] );
 } else {
 	$sUserFirstAndLast = "No First and Last name on file.";
 }
-if( $row['user_phone'] ) {
-	$sUserPhone = formatPhone( $row['user_phone'] );
+if( $row[ 'user_phone' ] ) {
+	$sUserPhone = formatPhone( $row[ 'user_phone' ] );
 } else {
 	$sUserPhone = "No Phone number on file.";
 }
@@ -139,7 +139,7 @@ $morecontent .= $sUserDescription;
 
 $leftColContent = wrapColumn( $jumboContent . $morecontent, 9 );
 
-$rowsContent = wrapRow($rightColContent . $leftColContent);
+$rowsContent = wrapRow( $rightColContent . $leftColContent );
 
 
 
@@ -151,7 +151,7 @@ $sTitle         = "BootStrap Page";
 $sTopContent    = outputTop( $sTitle, "My Profile" );
 $sBottomContent = outputBottom();
 $sBodyContent   = outputNavBarFix();
-$sBodyContent  .= wrapContainer($rowsContent);
+$sBodyContent  .= wrapContainer( $rowsContent );
 
 
 

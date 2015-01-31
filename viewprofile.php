@@ -7,11 +7,11 @@ include_once( "lib/db_connect.php" );
 include_once( "lib/scripts.php" );
 
 
-if( isset( $_GET['user_id'])) {
-	$iUserId = (int)$_GET['user_id'];
+if ( isset( $_GET ['user_id'] )) {
+	$iUserId = (int) $_GET ['user_id'];
 }
 
-if( 0 === $iUserId ){
+if ( 0 === $iUserId ) {
 	header( "Location: profiles.php" );
 }
 
@@ -31,10 +31,10 @@ $sql = "SELECT
 
 $stmt = $dbh->query( $sql );
 $row = $stmt->fetch( PDO::FETCH_ASSOC );
-$sUserName = $row['user_name'];
+$sUserName = $row ['user_name'];
 
-if( $row['image_name'] ) {
-	$sImagePath = IMAGE_BASE_PATH . $row['image_name'];
+if ( $row ['image_name'] ) {
+	$sImagePath = IMAGE_BASE_PATH . $row ['image_name'];
 	$sImageString = wrapImageTag( $sImagePath );
 } else {
 	$sImageString = "<h3>No Image on File</h3>";
@@ -50,8 +50,8 @@ $sql = "SELECT
 			user_id = $iUserId";
 $stmt = $dbh->query( $sql );
 $row  = $stmt->fetch( PDO::FETCH_ASSOC );
-if ( $row['user_description'] ) {
-	$sUserDescription = html_entity_decode( $row['user_description']);
+if ( $row ['user_description'] ) {
+	$sUserDescription = html_entity_decode( $row ['user_description'] );
 } else {
 	$sUserDescription = "<h3>No paragraph on file</h3>";
 }
@@ -68,10 +68,10 @@ $sql = "SELECT
 $stmt = $dbh->query( $sql );
 $row  = $stmt->fetch( PDO::FETCH_ASSOC );
 
-if ( $row['user_first'] ) {
-	$sUserFirstAndLast = ucfirst( $row['user_first']) 
+if ( $row ['user_first'] ) {
+	$sUserFirstAndLast = ucfirst( $row ['user_first'] ) 
 						 . " "
-						 . ucfirst ( $row['user_last']);
+						 . ucfirst ( $row ['user_last'] );
 } else {
 	$sUserFirstAndLast = "No First and Last name on file.";
 }
@@ -88,9 +88,9 @@ $rightColContent = wrapColumn( $sImageString , 6 );
 //left column
 $morecontent  = "<h2>$sUserFirstAndLast</h2>";
 $morecontent .= $sUserDescription;
-$leftColContent = wrapColumn($morecontent, 6 );
+$leftColContent = wrapColumn( $morecontent, 6 );
 
-$rowsContent = wrapRow($rightColContent . $leftColContent);
+$rowsContent = wrapRow( $rightColContent . $leftColContent );
 
 
 

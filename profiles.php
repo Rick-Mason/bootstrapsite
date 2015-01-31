@@ -27,13 +27,13 @@ try {
   $sTableCellOpen = "<td class=\"vert-align\">";
   $stmt = $dbh->query( $sql );
   while ( $row = $stmt->fetch( PDO::FETCH_ASSOC )) {
-    $userId = $row['user_id'];
+    $userId = $row[ 'user_id' ];
     $sTableRows .= "<tr>" . $sTableCellOpen;
-    $sGetStringUserName = "&user_name=" . urlencode( $row['user_name'] );
-    if( $row['image_name'] ){
-      $imagePath  = IMAGE_BASE_PATH . $row[ "image_name"];
-      list( $iWidth, $iHeight ) = getimagesize($imagePath);
-      if( $iWidth > 150 ){
+    $sGetStringUserName = "&user_name=" . urlencode( $row[ 'user_name' ] );
+    if( $row[ 'image_name' ] ) {
+      $imagePath  = IMAGE_BASE_PATH . $row[ 'image_name' ];
+      list( $iWidth, $iHeight ) = getimagesize( $imagePath );
+      if( $iWidth > 150 ) {
         $fScale     = $iWidth / $iHeight;
         $iNewWidth  = 150;
         $iNewHeigth = intval( $iNewWidth / $fScale );
@@ -56,7 +56,7 @@ try {
     
     $sTableRows .= "</td>";
     $sTableRows .= $sTableCellOpen;
-    $sTableRows .= "<h3>" . $row['user_name'] . "</h3>";
+    $sTableRows .= "<h3>" . $row[ 'user_name' ] . "</h3>";
     $sTableRows .= "</td>";
     $sTableRows .= $sTableCellOpen;
     $sTableRows .= wrapLinkButton( 
