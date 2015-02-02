@@ -13,8 +13,40 @@ include_once( "lib/scripts.php");
 
 
 /**
- * PROCESSING - Logout and dump the session
+ * PROCESSING - Logout and destroy the session
  */
+
+/*
+	NOTICE:
+		$_SESSION is a SUPER GLOBAL that is also an ARRAY.
+		The special syntax
+			$_SESSION = [];
+		Is used to force all the values in the SESSION ARRAY
+		to be logically written over with NULL values.
+		This makes it impossible to access that data.
+
+	Once the application specific SESSION DATA has been eliminated,
+	we want to destroy the SESSION itself.
+
+	We need to 'time out' the COOKIE.
+	We do this by setting the various cookies values with a TIME 
+	that is in the past.
+		time() - 42000
+	You may see this code in a lot of places.
+	The PHP manual uses this particular value in its example.
+	So, most programmers use the same value in their code.
+
+	The final step is to actually DESTROY the SESSION.
+	There is a PHP system function that does this:
+		destroy_session ();
+
+	This block of code is essentially universal.
+	It's SO common, that you might want to just extract it, as is,
+	and make a function that you take with you for every project
+	that you work on, so you don't have to rewrite, or even 
+	cut and paste the code. Just call your function and you're done.
+
+*/
 $_SESSION = [];
 if ( ini_get( "session.use_cookies" )) {
 	$params = session_get_cookie_params();
@@ -22,16 +54,14 @@ if ( ini_get( "session.use_cookies" )) {
 		session_name(), 
 		'', 
 		time() - 42000,
-		$params[ 'path' ],
-		$params[ 'domain' ],
-		$params[ 'secure' ],
-		$params[ 'httponly' ]
+		$params ['path'],
+		$params ['domain'],
+		$params ['secure'],
+		$params ['httponly']
 		);	
 }
 
-
-
-
+session_destroy();
 
 /**
  * HTML - Contstruct the page

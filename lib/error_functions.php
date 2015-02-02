@@ -1,7 +1,7 @@
 <?php
 
-function errorWrap( $arg ) {
+function errorWrap ( $arg ) {
 	echo "<pre>";
-	var_dump( $arg );
+	var_dump ( $arg );
 	echo "</pre>";
 }

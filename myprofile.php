@@ -13,10 +13,34 @@ include_once( "lib/scripts.php" );
  */
 
  
-	
+ /*
+	In our Database, we have several tables that store various parts of
+	the User's profile. They are all related to each other by a shared KEY.
 
+	In our example application, we added each piece of data one at a time,
+	using separate files for the processing:
+		myprofile_description.php
+		myprofile_image.php
+		myprofile_user_info.php
 
+	Each one of these files took the EXISTING USER and added additional
+	information about THAT USER, storing that information in the Database.
 
+	Each piece of data stored in a separate table.
+
+	It is good DATABASE DESIGN to use the same name for a key value in each 
+	table where it is used to 'relate' data from one table to data in another
+	table.
+
+	We have tried to be consistent. Our primary KEY is user_id.
+	Any table that contains additional USER INFORMATION uses user_id to relate
+	that data to the main (Master) table.
+
+	It is possible to construct a SINGLE QUERY to SELECT all the data from
+	all the tables at once, and return it in a single row of data.
+
+	This is not always
+ */
 
 /*$sql = "SELECT 	
 			user.user_name,
@@ -60,7 +84,7 @@ $row = $stmt->fetch( PDO::FETCH_ASSOC );
 $sUserEmail = $row[ 'user_email' ];
 $sUserName = $row[ 'user_name' ];
 
-if( $row[ 'image_name' ] ) {
+if ( $row[ 'image_name' ] ) {
 	$sImagePath = IMAGE_BASE_PATH . $row[ 'image_name' ];
 	$sImageString = wrapImageTag( $sImagePath );
 } else {
@@ -103,15 +127,11 @@ if ( $row[ 'user_first' ] ) {
 } else {
 	$sUserFirstAndLast = "No First and Last name on file.";
 }
-if( $row[ 'user_phone' ] ) {
+if ( $row[ 'user_phone' ] ) {
 	$sUserPhone = formatPhone( $row[ 'user_phone' ] );
 } else {
 	$sUserPhone = "No Phone number on file.";
 }
-
-
-
-
 
 
 

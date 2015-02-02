@@ -30,10 +30,10 @@ try {
     $userId = $row[ 'user_id' ];
     $sTableRows .= "<tr>" . $sTableCellOpen;
     $sGetStringUserName = "&user_name=" . urlencode( $row[ 'user_name' ] );
-    if( $row[ 'image_name' ] ) {
+    if ( $row[ 'image_name' ] ) {
       $imagePath  = IMAGE_BASE_PATH . $row[ 'image_name' ];
       list( $iWidth, $iHeight ) = getimagesize( $imagePath );
-      if( $iWidth > 150 ) {
+      if ( $iWidth > 150 ) {
         $fScale     = $iWidth / $iHeight;
         $iNewWidth  = 150;
         $iNewHeigth = intval( $iNewWidth / $fScale );

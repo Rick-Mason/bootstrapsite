@@ -5,12 +5,18 @@
 */
 
 /*
-	We do NOT store user's passwords "in the clear", meaning that they can be read by a human.
-	We store an ENCRYPTED STRING that is generated from the password.
-	NOTICE: we only store 15 characters of the encrypted string.
+	SECURITY TIP:
+		We do NOT store user's passwords "in the clear", meaning that they 
+		can be read by a human.
+		We store an ENCRYPTED STRING that is generated from the password.
+		
+	NOTICE: 
+		We only store 15 characters of the encrypted string.
 
-	When the user provides the password, we run the encryption on the string entered by the user,
-	and compare the encypted string we just generated with the one we have stored.
+	When the user provides the password, we run the encryption on the string 
+	entered by the user, and compare the encypted string we just generated
+	with the one we have stored.
+	
 	They should match since they were generated in exactly the same way.
 */
 function encryptPassword ( $sPassword ) {
@@ -21,9 +27,11 @@ function encryptPassword ( $sPassword ) {
 }
 
 /*
-	Take the 10 digits of a US phone number and reformat it to a standard display format
-	(xxx) xxx-xxxx
-	NOTICE: This can also be done in JAVASCRIPT using masks
+	Take the 10 digits of a US phone number and reformat it to a 
+	standard display format:
+		(xxx) xxx-xxxx
+	NOTICE: 
+		This can also be done in JAVASCRIPT using masks
 */
 function formatPhone ( $sPhoneNumber ) {
 	$areacode 	= substr( $sPhoneNumber, 0, 3 );

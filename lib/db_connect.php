@@ -1,6 +1,7 @@
 <?php
 /*
-	NOTICE: all the Database paramters are DEFINED CONSTANTS from the config.php file
+	NOTICE: 
+		All the Database paramters are DEFINED CONSTANTS from the config.php file
 
 	The PDO::xxx values are defined constants that are part of the PDO class and 
 	are referenced using NAMESPACE syntax

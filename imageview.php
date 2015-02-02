@@ -4,17 +4,23 @@ include_once( "lib/db_connect.php" );
 
 /*
 	Look at the IF statement.
-	NOTICE: It has TWO parts
-	The first part checks to see if the variable we want to look at is SET
-	If it is NOT SET, the second part won't even run because we specified && (AND)
+	NOTICE: 
+		It has TWO parts
+		The first part checks to see if the variable we want to look at is SET
+		If it is NOT SET, the second part won't even run because we 
+		specified && (AND)
 
-	In the second part, we extract the value, which we know is SET, and CAST it to an integer.
+	In the second part, we extract the value, which we know is SET, 
+	and CAST it to an integer.
+
 	ALL GET and POST variable are passed as STRINGS.
 	But we store the USER_ID as an integer in the Database
 
 	The special syntax
 		(int)
-	Tell the PHP processor to convert the STRING to the NUMBER represented by the string
+	tells the PHP processor to convert the STRING to the NUMBER represented 
+	by the string.
+
 */
 if ( isset( $_GET ['user_id'] )  && 
    ( 0 != (int) $_GET ['user_id'] )) {
@@ -35,15 +41,35 @@ if ( isset( $_GET ['user_id'] )  &&
 
 /*
 	NOTICE:
-		We are closing the PHP part of the file.
+		We have completed the PROCESSING. What's left is the DISPLAY.
+
+		We can CLOSE the PHP part of the file, using the special
+		closing tag: ?>
 		Anything after the closing tag will be interpreted as HTML
 
 		We can still use PHP, because this is a .php file
-		Just put in the special PHP tag <?php
-		Write the code you need (all the variables you could access before are still available)
-		Then CLOSE the PHP with the closing tag ?> to get back to HTML
+		To insert PHP code, use the special PHP open tag:<?php
 
-		We insert both the $userName and the $imagePath using this method in the HTML below.
+		Then write the code you need (all the variables you could 
+		access before are still available)
+
+		Once you complete the needed PHP coding, close the PHP tag
+		to return to HTML.
+
+		In this example all we need to do is insert the $userName
+		and $imagePath that we obtained in the code above.
+
+	CODING TIP:
+		It is good coding practice to avoid mixing HTML and PHP.
+
+		In this file all of the PROCESSING happens first.
+		Then we switch to HTML and only use PHP to ECHO values.
+
+		If you find yourself doing a lot of additional LOGIC or 
+		PROCESSING that you have to EMBED in the HTML, rethink
+		your layout or processing needs to see if you can reduce
+		the complexity, or separate out the LOGIC / PROCESSING
+		to keep your code CLEAN, CLEAR and READABLE.
 */
 ?>
 <!DOCTYPE html>
