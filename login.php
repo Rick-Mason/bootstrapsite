@@ -35,7 +35,7 @@ if ( isset( $_POST ['submit'] )) {
 	//check email
 	if ( !empty( $_POST ['inputEmail'] )) {
 		$dbEmail = trim( $_POST ['inputEmail'] );
-	} else 
+	} else {
 		$errorEmail = true;
 		$errors = true;
 	}

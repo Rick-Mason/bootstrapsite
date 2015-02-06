@@ -1,5 +1,9 @@
 <?php
 session_start();
+if ( !$_SESSION ['user_logged'] ) {
+	header("Location: login.php");
+}
+
 include_once( "lib/error_functions.php" );
 include_once( "lib/config.php" );
 include_once( "lib/wrapper_functions.php" );
